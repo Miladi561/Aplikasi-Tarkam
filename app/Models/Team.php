@@ -55,4 +55,19 @@ class Team extends Model
             'winner_team_id'
         );
     }
+
+    public function tournamentTeams(): HasMany
+    {
+        return $this->hasMany(TournamentTeam::class);
+    }
+
+    public function matchEvents(): HasMany
+    {
+        return $this->hasMany(MatchEvent::class);
+    }
+
+    public function championships(): HasMany
+    {
+        return $this->hasMany(Tournament::class, 'champion_team_id');
+    }
 }

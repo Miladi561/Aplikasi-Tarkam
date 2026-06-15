@@ -128,6 +128,11 @@ class MatchModel extends Model
 
     public function hasPenalty(): bool
     {
-        return ! is_null($this->team1_penalty_score);
+        return $this->team1_penalty_score !== null || $this->team2_penalty_score !== null;
+    }
+
+    public function getDisplayNameAttribute(): string
+    {
+        return $this->round?->name.' #'.$this->bracket_position;
     }
 }

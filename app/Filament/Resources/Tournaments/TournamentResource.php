@@ -6,6 +6,7 @@ use App\Filament\Resources\Tournaments\Pages\CreateTournament;
 use App\Filament\Resources\Tournaments\Pages\EditTournament;
 use App\Filament\Resources\Tournaments\Pages\ListTournaments;
 use App\Filament\Resources\Tournaments\Pages\ManageTournamentTeams;
+use App\Filament\Resources\Tournaments\Pages\TournamentBracketPage;
 use App\Filament\Resources\Tournaments\Pages\ViewTournament;
 use App\Filament\Resources\Tournaments\Schemas\TournamentForm;
 use App\Filament\Resources\Tournaments\Schemas\TournamentInfolist;
@@ -54,6 +55,7 @@ class TournamentResource extends Resource
     {
         return $page->generateNavigationItems([
             ViewTournament::class,
+            TournamentBracketPage::class,
             EditTournament::class,
             ManageTournamentTeams::class,
         ]);
@@ -65,6 +67,7 @@ class TournamentResource extends Resource
             'index' => ListTournaments::route('/'),
             'create' => CreateTournament::route('/create'),
             'view' => ViewTournament::route('/{record}'),
+            'bracket' => TournamentBracketPage::route('/{record}/bracket'),
             'edit' => EditTournament::route('/{record}/edit'),
             'teams' => ManageTournamentTeams::route('/{record}/teams'),
         ];

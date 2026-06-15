@@ -28,6 +28,6 @@ class Round extends Model
 
     public function matches(): HasMany
     {
-        return $this->hasMany(MatchModel::class);
+        return $this->hasMany(MatchModel::class)->orderBy('bracket_position');
     }
 }
